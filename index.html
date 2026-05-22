@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蘇珮媛 - Dora Su | 互動設計師</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-yellow: #ffc93d;
+            --primary-blue: #2563eb;
+            --accent-teal: #06b6d4;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --dark-text: #0f172a;
+            --soft-text: #64748b;
+            --coral: #f97316;
+            --success: #10b981;
+            --surface-white: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'PingFang TC', 'Helvetica Neue', sans-serif;
+            background: var(--light-gray);
+            color: var(--dark-text);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--soft-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.35rem;
+            color: var(--soft-text);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .hero-tagline {
+            font-size: 1rem;
+            color: var(--primary-blue);
+            margin-bottom: 2.5rem;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(255, 201, 61, 0.05) 100%);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-yellow);
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-yellow) 100%);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-card {
+            position: relative;
+            width: 300px;
+            height: 380px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 3px solid var(--primary-yellow);
+            transform: rotate(-3deg);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .avatar-card:hover {
+            transform: rotate(0deg) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .avatar-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-badge {
+            position: absolute;
+            top: 16px;
+            right: -8px;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--primary-yellow) 100%);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: var(--shadow-lg);
+            transform: rotate(15deg);
+            letter-spacing: 0.5px;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            max-width: 1280px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            color: var(--dark-text);
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--soft-text);
+            margin-bottom: 3.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-yellow), var(--primary-blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-icon {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        .skill-card p {
+            color: var(--soft-text);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            max-width: 1280px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 2rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--coral) 100%);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.3px;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark-text);
+            font-weight: 700;
+        }
+
+        .project-card p {
+            color: var(--soft-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(77, 217, 255, 0.08));
+            color: var(--primary-blue);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            max-width: 1280px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-yellow) 0%, var(--primary-blue) 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            width: 48%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 52%;
+            padding-left: 3rem;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: linear-gradient(135deg, var(--primary-yellow), var(--primary-blue));
+            border: 3px solid var(--white);
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 24px;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 1.75rem;
+            border-radius: 10px;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-content h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .timeline-content p {
+            color: var(--soft-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(255, 201, 61, 0.04) 100%);
+            max-width: 100%;
+            margin: 5rem 0;
+            padding: 4rem 1.5rem;
+        }
+
+        .about-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.25rem;
+            color: var(--soft-text);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .traits {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .trait {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .trait-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--primary-yellow), var(--primary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .trait span {
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            max-width: 1280px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .contact-section .section-title {
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-content {
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+            padding: 3.5rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.95rem;
+        }
+
+        .contact-link:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 1.5rem;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        footer p:last-child {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.75rem;
+            }
+
+            .avatar-card {
+                width: 260px;
+                height: 340px;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .about-content {
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 1.5rem;
+                gap: 2.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.25rem;
+                line-height: 1.15;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .avatar-card {
+                width: 240px;
+                height: 310px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .skill-card {
+                padding: 1.5rem;
+            }
+
+            .skill-card h3 {
+                font-size: 1rem;
+            }
+
+            .skill-card p {
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .project-content {
+                padding: 1.75rem;
+            }
+
+            .project-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .project-tech {
+                gap: 0.5rem;
+            }
+
+            .tech-tag {
+                font-size: 0.75rem;
+                padding: 0.35rem 0.7rem;
+            }
+
+            .timeline::before {
+                left: 12px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                margin-left: 0 !important;
+                text-align: left !important;
+                padding-left: 50px !important;
+                padding-right: 0 !important;
+            }
+
+            .timeline-dot {
+                left: 12px;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-content h4 {
+                font-size: 0.95rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.75rem;
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+            }
+
+            .contact-content {
+                padding: 2.5rem 1.75rem;
+            }
+
+            .contact-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .contact-content p {
+                font-size: 1rem;
+                margin-bottom: 1.75rem;
+            }
+
+            .contact-links {
+                gap: 1rem;
+            }
+
+            .contact-link {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.75rem 1rem;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-tagline {
+                font-size: 0.95rem;
+                padding: 1rem;
+            }
+
+            .avatar-card {
+                width: 200px;
+                height: 260px;
+                border: 2px solid var(--primary-yellow);
+            }
+
+            .skill-card {
+                padding: 1.25rem;
+            }
+
+            .skill-icon {
+                font-size: 2rem;
+            }
+
+            .skill-card h3 {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .project-card {
+                margin-bottom: 1.5rem;
+            }
+
+            .project-content {
+                padding: 1.5rem;
+            }
+
+            .project-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .project-card p {
+                font-size: 0.9rem;
+            }
+
+            .project-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .timeline-item {
+                margin-bottom: 2rem;
+            }
+
+            .timeline-content {
+                padding: 1.25rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .traits {
+                gap: 0.75rem;
+            }
+
+            .contact-content {
+                padding: 2rem 1.25rem;
+            }
+
+            .contact-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-link {
+                width: 100%;
+            }
+
+            footer {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: var(--shadow-lg);
+            }
+            50% {
+                box-shadow: var(--shadow-xl);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .skill-card {
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .skill-card:nth-child(1) { animation-delay: 0.05s; }
+        .skill-card:nth-child(2) { animation-delay: 0.1s; }
+        .skill-card:nth-child(3) { animation-delay: 0.15s; }
+        .skill-card:nth-child(4) { animation-delay: 0.2s; }
+        .skill-card:nth-child(5) { animation-delay: 0.25s; }
+        .skill-card:nth-child(6) { animation-delay: 0.3s; }
+
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="100" cy="100" r="80" fill="rgba(37,99,235,0.03)"/><circle cx="1000" cy="500" r="120" fill="rgba(255,201,61,0.03)"/></svg>');
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax-bg"></div>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">✨ Dora</div>
+            <ul class="nav-links">
+                <li><a href="#home">首頁</a></li>
+                <li><a href="#skills">技能</a></li>
+                <li><a href="#projects">作品</a></li>
+                <li><a href="#about">關於我</a></li>
+                <li><a href="#contact">聯絡</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <h1>蘇珮媛<br>Dora Su</h1>
+            <p class="subtitle">互動設計師 & 創意開發者</p>
+            <div class="hero-tagline">
+                💡 把抽象的想法轉化成有溫度的視覺與互動體驗
+            </div>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">檢視作品</a>
+                <a href="#contact" class="btn btn-secondary">聯絡我</a>
+            </div>
+            <p style="color: var(--soft-text); margin-top: 1.5rem;">
+                <strong>🎓 北科大 互動設計系 大三</strong><br>
+                📍 台北 | 專注未來科技應用與教育科技
+            </p>
+        </div>
+
+        <div class="hero-image">
+            <div class="avatar-card">
+                <img src="./img/me.jpg" alt="蘇珮媛 Dora Su">
+                <div class="avatar-badge">👨‍💻 Designer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2 class="section-title">💻 主要技能</h2>
+        <p class="section-subtitle">我的技術工具箱</p>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">⚙️</div>
+                <h3>Unity</h3>
+                <p>3D/2D遊戲開發與互動應用</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">#</div>
+                <h3>C#</h3>
+                <p>物件導向程式開發</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🌐</div>
+                <h3>HTML/CSS/JS</h3>
+                <p>Web前端開發與設計</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h3>AI生成工具</h3>
+                <p>ChatGPT、Midjourney等應用</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>Adobe軟體</h3>
+                <p>Ps、Ai、Pr等設計工具</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🔧</div>
+                <h3>Arduino</h3>
+                <p>硬體感測與互動裝置開發</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">🚀 代表作品</h2>
+        <p class="section-subtitle">硬體×數位的創意實驗</p>
+
+        <div class="project-card fade-in">
+            <div class="project-content">
+                <span class="project-badge">🔧 互動裝置</span>
+                <h3>Unity × Arduino 互動裝置開發</h3>
+                <p>使用 Arduino 感測器與 Unity 進行即時連接，製作可透過實體操作控制畫面互動的裝置。透過這個專題學習硬體與數位互動的整合流程。</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">感測器</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card fade-in">
+            <div class="project-content">
+                <span class="project-badge">🎮 VR應用</span>
+                <h3>VR 射箭互動系統</h3>
+                <p>結合 Unity 與 VR 頭盔與搖桿控制，使用雙控制器模擬拉弓動作。透過雙手距離計算射箭力道，提升沉浸式互動體驗。</p>
+                <div class="project-tech">
+                    <span class="tech-tag">VR</span>
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">Motion Control</span>
+                    <span class="tech-tag">沉浸式體驗</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card fade-in">
+            <div class="project-content">
+                <span class="project-badge">🧁 IoT體驗</span>
+                <h3>烘焙互動模擬裝置</h3>
+                <p>使用微動開關模擬過篩動作，透過 Arduino 與 Unity 串接控制動畫變化。讓使用者能以實體操作方式體驗烘焙流程的各個步驟。</p>
+                <div class="project-tech">
+                    <span class="tech-tag">微動開關</span>
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">Unity動畫</span>
+                    <span class="tech-tag">IoT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <h2 class="section-title">📈 我的成長時間線</h2>
+        <p class="section-subtitle">重要的里程碑</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2024 - 現在</h4>
+                    <p><strong>北科大互動設計系 大三</strong><br>深入學習互動設計、程式開發與數位創作</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2024</h4>
+                    <p><strong>網銀國際 企劃實習生</strong><br>參與企劃與內容相關工作</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2024</h4>
+                    <p><strong>Bebras 國際運算思維挑戰賽</strong><br>獲得 PR99 優異成績</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2023</h4>
+                    <p><strong>電腦硬體裝修丙級</strong><br>獲得技能檢定證照</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2023</h4>
+                    <p><strong>多益英檢 585分</strong><br>通過英文能力認證</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h3>關於我</h3>
+                <p>我是一位互動設計師，對於未來科技應用、教育科技特別感興趣。我相信好的設計應該是溫暖且親切的，能夠用視覺與互動為人們解決生活中的問題。</p>
+                <p>我很會觀察使用者的感受，做事負責任，也擅長團隊合作。我一直在為自己理想中的生活努力，希望透過不斷學習與累積，讓未來的自己與身邊的人都能過得更好。</p>
+                
+                <div class="traits">
+                    <div class="trait">
+                        <div class="trait-icon">👁</div>
+                        <span>很會觀察使用者感受</span>
+                    </div>
+                    <div class="trait">
+                        <div class="trait-icon">✅</div>
+                        <span>做事負責任</span>
+                    </div>
+                    <div class="trait">
+                        <div class="trait-icon">🤝</div>
+                        <span>擅長團隊合作</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--dark-text); margin-bottom: 1rem;">我在尋找</h3>
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 12px; color: var(--dark-text);">
+                    <h4 style="margin-bottom: 1rem; font-size: 1.1rem;">升學方向：</h4>
+                    <ul style="margin-bottom: 1.5rem; text-align: left;">
+                        <li>未來科技應用</li>
+                        <li>教育科技</li>
+                        <li>互動設計</li>
+                        <li>AI研究</li>
+                    </ul>
+                    
+                    <h4 style="margin-bottom: 1rem; font-size: 1.1rem;">求職方向：</h4>
+                    <ul style="text-align: left;">
+                        <li>AI生活助理企劃</li>
+                        <li>互動產品企劃助理</li>
+                        <li>使用者體驗研究助理</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
+            <h2>🎉 讓我們一起合作</h2>
+            <p>有任何問題或合作機會嗎？我很樂意聽聽你的想法！</p>
+            
+            <div class="contact-links">
+                <a href="mailto:dora29868756@gmail.com" class="contact-link">📧 Email</a>
+                <a href="https://github.com/yuan94520" target="_blank" class="contact-link">🐙 GitHub</a>
+                <a href="https://yuan94520.github.io" target="_blank" class="contact-link">🌐 個人網站</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 蘇珮媛 Dora Su. 用心設計，溫暖互動。💫</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">Made with ❤️ & 🔥</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
